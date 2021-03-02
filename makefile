@@ -11,8 +11,8 @@ install: ## Make venv and install requirements
 	pipenv install --dev
 
 migrate: ## Make and run migrations
-	pipenv run python manage.py makemigrations --settings=config.settings.local
-	pipenv run python manage.py migrate --settings=config.settings.local
+	pipenv run python app/manage.py makemigrations
+	pipenv run python app/manage.py migrate
 
 db-up: ## Pull and start the Docker Postgres container in the background
 	docker rm -f database
@@ -23,10 +23,10 @@ db-shell: ## Access the Postgres Docker database interactively with psql
 
 .PHONY: test
 test: ## Run tests
-	pipenv run python manage.py test application --verbosity=0 --parallel --failfast
+	pipenv run python app/manage.py test application --verbosity=0 --parallel --failfast
 
 .PHONY: run
 run: ## Run the Django server
-	pipenv run python manage.py runserver --settings=config.settings.local
+	pipenv run python app/manage.py runserver
 
 start: install migrate run ## Install requirements, apply migrations, then start development server
