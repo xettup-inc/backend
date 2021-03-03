@@ -1,9 +1,5 @@
 # App Xettup
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 ## Installation backend
 Lo primero que debemos es allanar las bases de nuestro entorno de desarrollo:
 
