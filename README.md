@@ -1,54 +1,54 @@
-# App Xettup
+# Xettup App
 
 ## Installation backend
-Lo primero que debemos es allanar las bases de nuestro entorno de desarrollo:
+The first thing we must do is pave the foundations of our development environment:
 
-> ¿Como lo haremos?
+> How will we do it?
 
-Previamente tener instalado:
+Previously have installed:
 
-- Python 3.x, [Python docs](https://www.python.org/).
-- Docker, [Docker docs](https://docs.docker.com/engine/install/).
-- Docker Compose, [Docker docs](https://docs.docker.com/compose/install/).
+- Python 3.x, [Python docs] (https://www.python.org/).
+- Docker, [Docker docs] (https://docs.docker.com/engine/install/).
+- Docker Compose, [Docker docs] (https://docs.docker.com/compose/install/).
 
-Una vez listo lo anterior, seguimos con:
+Once the above is ready, we continue with:
 
-- instalar pipenv
-```bash
+- install pipenv
+bash
 pip install pipenv
-```
+`` ''
 
-- Crear el archivo **.env**
-```
+- Create the **. Env ** file
+`` ''
 backend
-│   .env
+│ .env
 │
-```
+`` ''
 
--  copiar y pegar el archivo el contenido del archivo **.env.example** en el **.env**
+- copy and paste the file the content of the file **. env.example ** in the **. env **
 the next step is to run
-```
+`` ''
 backend
-│   .env
-│   .env.example
+│ .env
+│ .env.example
 │
-```
+`` ''
 
-- Crear el archivo **.docker-compose.override.yml**
-```
+- Create the file **. Docker-compose.override.yml **
+`` ''
 backend
-│   .docker-compose.override.yml
+│ .docker-compose.override.yml
 │
-```
+`` ''
 
-- Copie y pegue lo siguiente en el **.docker-compose.override.yml**
-```
+- Copy and paste the following into the **. Docker-compose.override.yml **
+`` ''
 version: "3.3"
 
 services:
   db:
     environment:
-      POSTGRES_HOST_AUTH_METHOD: ${PROTOTYPE_DB_HOST_AUTH_METHOD}
+      POSTGRES_HOST_AUTH_METHOD: $ {PROTOTYPE_DB_HOST_AUTH_METHOD}
     ports:
-      - "5432:5432"
-```
+      - "5432: 5432"
+`` ''
