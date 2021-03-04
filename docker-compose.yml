@@ -1,17 +1,25 @@
 version: '3.3'
 
 services:
-  web:
+  app:
     build: .
     env_file:
       - .env
-    command: python /code/manage.py runserver 0.0.0.0:8000 --settings=config.settings.production
     volumes:
-      - .:/code
-    ports:
-      - 8000:8000
+      - static_data:/vol/web
     depends_on:
       - db
+
+  proxy:
+    build:
+      context: ./proxy
+    volumes:
+      - static_data:/vol/static
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
+
   db:
     image: postgres:12-alpine
     environment:
@@ -23,3 +31,4 @@ services:
 
 volumes:
   prototype-db:
+  static_data:

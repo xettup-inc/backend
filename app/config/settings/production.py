@@ -4,7 +4,7 @@ from .base import env
 DEBUG = False
 
 SECRET_KEY = env('PROTOTYPE_DJANGO_SECRET_KEY')
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['frubana.com'])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['*'])
 
 # Security
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -27,5 +27,7 @@ EMAIL_HOST_PASSWORD = env('SENDGRID_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-#Admin
-ADMIN_URL = env('DJANGO_ADMIN_URL')
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'http://localhost:8000',
+)
