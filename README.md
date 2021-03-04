@@ -49,11 +49,9 @@ services:
       - "5432:5432"
 ```
 
-- write and run the next commands lines:
+- write and run the following command lines one by one:
 
 ```bash
-make install
-
 make db-up
 
 make start
